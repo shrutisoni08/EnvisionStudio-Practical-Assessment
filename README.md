@@ -10,7 +10,7 @@ Requirements: Node.js 18+ and npm, plus a MongoDB instance — either local Mong
 # Terminal 1 — API on http://localhost:4000
 cd server
 npm install
-cp .env.example .env      # then set MONGODB_URI if yours differs
+cp .env.example .env       # then set MONGODB_URI if yours differs
 npm start
 
 # Terminal 2 — UI on http://localhost:5173/projects
