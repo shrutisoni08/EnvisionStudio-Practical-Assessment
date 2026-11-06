@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn { @apply rounded-md border border-slate-300 bg-white px-3.5 py-2 text-sm font-medium text-slate-800 hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand disabled:cursor-progress disabled:opacity-60 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700; }
+  .btn-primary { @apply border-brand bg-brand text-white hover:bg-brand/90 dark:border-brand-light dark:bg-brand-light dark:text-slate-900 dark:hover:bg-brand-light/90; }
+  .field { @apply w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100; }
+  .badge { @apply ml-2 inline-block whitespace-nowrap rounded-full px-2 py-0.5 text-xs font-semibold; }
+}
