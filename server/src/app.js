@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import { STATUSES } from './constants.js';
 import { Project, serialize } from './models/Project.js';
 import { isValidStatus, validateNewProject } from './validation.js';
+import { ensureDb } from './db.js';
 
 // Nearest deadline first. Mongo sorts null *first* ascending, so a helper flag pushes
 // projects without a deadline to the end; _id keeps the order stable.
@@ -14,6 +15,16 @@ const sortStage = [
 
 export function createApp() {
   const app = express();
+  // Ensure MongoDB is connected before processing API requests.
+app.use(async (_req, _res, next) => {
+  try {
+    await ensureDb();
+    next();
+  } catch (err) {
+    console.error('MongoDB connection failed:', err.message);
+    next(err);
+  }
+});
   app.use(cors());
   app.use(express.json());
 
@@ -68,4 +79,8 @@ export function createApp() {
   });
 
   return app;
+
 }
+const app = createApp();
+
+export default app;
